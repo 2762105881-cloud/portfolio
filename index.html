@@ -26,9 +26,12 @@ h1 span{display:block;color:transparent;-webkit-text-stroke:1px #f4f2f0}
 .section-head h2{font-size:22px;margin:0;letter-spacing:-.03em}
 .section-head p{margin:0;color:var(--muted);font-size:11px}
 .gallery{max-width:1120px;margin:0 auto;padding:0 22px 70px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.item{background:#111114;border:1px solid #242229;overflow:hidden;cursor:zoom-in;transition:transform .2s,border-color .2s}
+.item{background:#111114;border:1px solid #242229;overflow:hidden;cursor:default;transition:transform .2s,border-color .2s;position:relative;user-select:none;-webkit-user-select:none}
 .item:hover{transform:translateY(-3px);border-color:#55505c}
-.item img{display:block;width:100%;height:auto}
+.item img{display:block;width:100%;height:auto;pointer-events:none;-webkit-user-drag:none;user-select:none}
+/* Lightweight deterrents only; they cannot prevent screenshots or all downloads. */
+.item::after{content:"PORTFOLIO PREVIEW · DO NOT REPOST";position:absolute;right:10px;bottom:54px;z-index:2;color:rgba(255,255,255,.78);background:rgba(0,0,0,.42);padding:6px 8px;font-size:9px;letter-spacing:.12em;pointer-events:none}
+.item figcaption{position:relative;z-index:3}
 .item figcaption{padding:13px 15px;color:#a8a5ad;font-size:11px;display:flex;justify-content:space-between;letter-spacing:.04em}
 footer{border-top:1px solid var(--line);padding:28px 22px;display:flex;justify-content:space-between;max-width:1120px;margin:auto;color:var(--muted);font-size:11px;letter-spacing:.08em}
 .viewer{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:10;align-items:center;justify-content:center;padding:18px;cursor:zoom-out}
@@ -46,20 +49,17 @@ footer{border-top:1px solid var(--line);padding:28px 22px;display:flex;justify-c
 <p class="intro">视觉设计 · 文化旅游项目 · 展陈空间<br>从视觉概念到场景呈现，持续探索设计与真实场景之间的连接。</p>
 <div class="hero-foot"><span>SELECTED WORKS</span><span>2023 — 2026</span></div>
 </section>
-<div class="section-head" id="works"><h2>精选项目</h2><p>SCROLL TO EXPLORE / 点击图片放大</p></div>
+<div class="section-head" id="works"><h2>精选项目</h2><p>SCROLL TO EXPLORE / PORTFOLIO PREVIEW</p></div>
 <section class="gallery">
-<figure class="item" tabindex="0" role="button" aria-label="放大查看第1页"><img loading="lazy" src="page-01.jpg" alt="作品集页面 1"><figcaption><span>PORTFOLIO PAGE</span><span>01 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第2页"><img loading="lazy" src="page-02.jpg" alt="作品集页面 2"><figcaption><span>PORTFOLIO PAGE</span><span>02 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第3页"><img loading="lazy" src="page-03.jpg" alt="作品集页面 3"><figcaption><span>PORTFOLIO PAGE</span><span>03 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第4页"><img loading="lazy" src="page-04.jpg" alt="作品集页面 4"><figcaption><span>PORTFOLIO PAGE</span><span>04 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第5页"><img loading="lazy" src="page-05.jpg" alt="作品集页面 5"><figcaption><span>PORTFOLIO PAGE</span><span>05 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第6页"><img loading="lazy" src="page-06.jpg" alt="作品集页面 6"><figcaption><span>PORTFOLIO PAGE</span><span>06 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第7页"><img loading="lazy" src="page-07.jpg" alt="作品集页面 7"><figcaption><span>PORTFOLIO PAGE</span><span>07 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第8页"><img loading="lazy" src="page-08.jpg" alt="作品集页面 8"><figcaption><span>PORTFOLIO PAGE</span><span>08 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第9页"><img loading="lazy" src="page-09.jpg" alt="作品集页面 9"><figcaption><span>PORTFOLIO PAGE</span><span>09 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第10页"><img loading="lazy" src="page-10.jpg" alt="作品集页面 10"><figcaption><span>PORTFOLIO PAGE</span><span>10 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第11页"><img loading="lazy" src="page-11.jpg" alt="作品集页面 11"><figcaption><span>PORTFOLIO PAGE</span><span>11 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第12页"><img loading="lazy" src="page-12.jpg" alt="作品集页面 12"><figcaption><span>PORTFOLIO PAGE</span><span>12 / 13</span></figcaption></figure>\n<figure class="item" tabindex="0" role="button" aria-label="放大查看第13页"><img loading="lazy" src="page-13.jpg" alt="作品集页面 13"><figcaption><span>PORTFOLIO PAGE</span><span>13 / 13</span></figcaption></figure>\n</section>
+<figure class="item"><img loading="lazy" src="page-01.jpg" alt="作品集页面 1"><figcaption><span>PORTFOLIO PAGE</span><span>01 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-02.jpg" alt="作品集页面 2"><figcaption><span>PORTFOLIO PAGE</span><span>02 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-03.jpg" alt="作品集页面 3"><figcaption><span>PORTFOLIO PAGE</span><span>03 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-04.jpg" alt="作品集页面 4"><figcaption><span>PORTFOLIO PAGE</span><span>04 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-05.jpg" alt="作品集页面 5"><figcaption><span>PORTFOLIO PAGE</span><span>05 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-06.jpg" alt="作品集页面 6"><figcaption><span>PORTFOLIO PAGE</span><span>06 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-07.jpg" alt="作品集页面 7"><figcaption><span>PORTFOLIO PAGE</span><span>07 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-08.jpg" alt="作品集页面 8"><figcaption><span>PORTFOLIO PAGE</span><span>08 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-09.jpg" alt="作品集页面 9"><figcaption><span>PORTFOLIO PAGE</span><span>09 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-10.jpg" alt="作品集页面 10"><figcaption><span>PORTFOLIO PAGE</span><span>10 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-11.jpg" alt="作品集页面 11"><figcaption><span>PORTFOLIO PAGE</span><span>11 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-12.jpg" alt="作品集页面 12"><figcaption><span>PORTFOLIO PAGE</span><span>12 / 13</span></figcaption></figure>\n<figure class="item"><img loading="lazy" src="page-13.jpg" alt="作品集页面 13"><figcaption><span>PORTFOLIO PAGE</span><span>13 / 13</span></figcaption></figure>\n</section>
 </main>
 <footer><span>STILL LEARNING, STILL CREATING.</span><span>DESIGN PORTFOLIO · 2026</span></footer>
-<div class="viewer" id="viewer" aria-label="图片预览"><img alt="作品集大图"></div>
 <script>
-const viewer=document.getElementById('viewer'), preview=viewer.querySelector('img');
-document.querySelectorAll('.item').forEach(card=>{
- const open=()=>{preview.src=card.querySelector('img').src;viewer.classList.add('open')};
- card.addEventListener('click',open);
- card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}});
+// Discourage casual saving; this does not stop screenshots or developer tools.
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('dragstart', e => { if (e.target.tagName === 'IMG') e.preventDefault(); });
+document.addEventListener('keydown', e => {
+  if ((e.ctrlKey || e.metaKey) && ['s','u'].includes(e.key.toLowerCase())) e.preventDefault();
 });
-viewer.addEventListener('click',()=>viewer.classList.remove('open'));
-document.addEventListener('keydown',e=>{if(e.key==='Escape')viewer.classList.remove('open')});
 </script>
 </body></html>
